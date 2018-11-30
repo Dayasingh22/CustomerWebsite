@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <script src="http://maps.google.com/maps/api/js?sensor=false" 
+          type="text/javascript"></script>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Customer Website</title>
+</head>
+<body>
+        <header>
+            <div class="brand">
+            <h1><span class="highlight">ACE</span> ENTERPRISES Ltd</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class="current"><a href="About.html" target="_blank";>About</a></li>
+                    <li><a href="Contact.html" target="_blank">Contact</a></li>
+                    <li><input type="text" placeholder="Search.."></li>
+                    <button type="submit" id="but"><i class="fa fa-search"></i></button>
+
+                </ul>
+            </nav>
+                </div>
+                
+        </header>
+        <span class="open-slide">
+            <a href="#" onclick="openSlideMenu()">
+              <svg width="30" height="30">
+                  <path d="M0,5 30,5" stroke="#000" stroke-width="5"/>
+                  <path d="M0,14 30,14" stroke="#000" stroke-width="5"/>
+                  <path d="M0,23 30,23" stroke="#000" stroke-width="5"/>
+              </svg>
+            </a>
+          </span>
+          <div id="side-menu" class="side-nav">
+            <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+            <a href="Website homepage.html">Home</a>
+            <a href="Site1.html" target="_blank">Site 1</a>
+            <a href="Site2.html" target="_blank">Site 2</a>
+            <a href="Site3.html" target="_blank">Site 3</a>
+            <a href="distance.html" target="_blank">Distance Calculator</a>
+          </div>
+          <script>
+            function openSlideMenu(){
+              document.getElementById('side-menu').style.width = '250px';
+              document.getElementById('main').style.marginLeft = '250px';
+            }
+        
+            function closeSlideMenu(){
+              document.getElementById('side-menu').style.width = '0';
+              document.getElementById('main').style.marginLeft = '0';
+            }
+          </script>
+          <div class="Waving">
+          <marquee><img src="robo.gif" alt="Waving Robot hand"></marquee>
+          </div>
+        <section id="showcase">
+                <h1>Oil Company Robots</h1>
+                <p>
+                    ACE Enterprises work for the oil company in which we provide ROBOTS services.<br>
+                    Our Robots are designed to clean the pipeline of the Oil companies.
+
+                </p>
+        </section>
+        <section class="newsletter">
+            <div class="container">
+                <h1>Subscribe To Our Company's Newsletter</h1>
+                <form action="#">
+                    <input type="email" placeholder="Email...">
+                    <button type="submit" class="button_1">Subscribe</button>
+
+                </form>
+            </div>
+        </section>
+    </div>
+    <div class="maptext">
+        <h1>Map with the Oil Sites</h1>
+    </div>
+    <section class="main">
+            <div id="map" style="width: 100%; height: 400px;"></div>
+
+            <script type="text/javascript">
+              var locations = [
+                [ 'Vijayawada'+ '<br>Oil Site'+ '<br>Latitude:16.5062'+ '<br>Longitude:80.6480', 16.5062, 80.6480, 4],
+                [ 'Vizag'+'<br>Oil Site'+'<br>Latitude:17.6868'+'<br>Longitude:83.2185', 17.6868, 83.2185, 5],
+                [ 'Hyderabad'+'<br>Oil SIte'+'<br>Latitude:17.3850'+'<br>Longitude:78.4867', 17.3850, 78.4867, 3],
+              ];
+          
+              var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 6,
+                center: new google.maps.LatLng(16.5062, 80.6480),
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+              });
+          
+              var infowindow = new google.maps.InfoWindow();
+          
+              var marker, i;
+          
+              for (i = 0; i < locations.length; i++) {  
+                marker = new google.maps.Marker({
+                  position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                  map: map
+                });
+          
+                google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
+                  return function() {
+                    infowindow.setContent(locations[i][0]);
+                    infowindow.open(map, marker);
+                    google.maps.event.addListener(marker, 'mouseout', function() {
+	                infowindow.close();
+});
+                  }
+                })(marker, i));
+              }
+            </script>
+                
+        <div class="text">
+            <p>
+                Our Company is fully responsible for working on the three oil sites of INDIA.<br>
+                That is HYDERABABD VIZAG AND VIJAYAWADA.
+            </p>
+        </div>
+        </section>
+            <footer>
+                <a href="About.html" target="_blank">About</a>
+                <a href="Contact.html" target="_blank">Contact</a>
+                <br>
+                <p>
+                    Ace Enterprises, Copyright &copy; 2018
+                </p>
+
+            </footer>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="site1.css">
+    <title>Vijayawada</title>
+</head>
+<body>
+    <header>
+        <div class="brand">
+        <h1><span class="highlight">ACE</span> ENTERPRISES Ltd</h1>
+        </div>
+        <nav>
+            <ul>
+                <li class="current"><a href="About.html" target="_blank";>About</a></li>
+                <li><a href="Contact.html" target="_blank">Contact</a></li>
+                <li><input type="text" placeholder="Search.."></li>
+            </ul>
+        </nav>
+            </div>
+            
+    </header>
+    <span class="open-slide">
+        <a href="#" onclick="openSlideMenu()">
+          <svg width="30" height="30">
+              <path d="M0,5 30,5" stroke="#000" stroke-width="5"/>
+              <path d="M0,14 30,14" stroke="#000" stroke-width="5"/>
+              <path d="M0,23 30,23" stroke="#000" stroke-width="5"/>
+          </svg>
+        </a>
+      </span>
+      <div id="side-menu" class="side-nav">
+        <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+        <a href="Website homepage.html">Home</a>
+        <a href="Site1.html" target="_blank">Site 1</a>
+        <a href="Site2.html" target="_blank">Site 2</a>
+        <a href="Site3.html" target="_blank">Site 3</a>
+        <a href="distance.html" target="_blank">Distance Calculator</a>
+      </div>
+      <script>
+        function openSlideMenu(){
+          document.getElementById('side-menu').style.width = '250px';
+          document.getElementById('main').style.marginLeft = '250px';
+        }
+    
+        function closeSlideMenu(){
+          document.getElementById('side-menu').style.width = '0';
+          document.getElementById('main').style.marginLeft = '0';
+        }
+      </script>
+      <div class="main">
+        <h1>Vijayawada Oil Site</h1>
+      </div>
+       <div id="map">
+       <script>
+   
+         function initMap() {
+           var Vijayawada = {lat: 16.5062, lng: 80.6480};
+           var map = new google.maps.Map(document.getElementById('map'), {
+             zoom: 10,
+             center: Vijayawada
+           });
+   
+           var contentString = '<div id="content">'+
+              '<div id="siteNotice">'+
+               '</div>'+
+               '<h1 id="firstHeading" class="firstHeading">Vijayawada</h1>'+
+                           '<br>Oil Site'  +
+                           '<br>Latitude:16.5062 ' +
+                           '<br>Longitude: 80.6480' +'</div>';
+   
+           var infowindow = new google.maps.InfoWindow({
+             content: contentString
+           });
+   
+           var marker = new google.maps.Marker({
+             position: Vijayawada,
+             map: map,
+             title: 'Vijayawada (Oil Site)',
+             icon: 'gas2.PNG',
+           });
+           marker.addListener('mouseover', function() {
+             infowindow.open(map, marker);
+           });
+         }
+       </script>
+       <script async defer
+       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvTdpkrX0sJRVZUbGQ6z0ktesKp9GUMC0&callback=initMap">
+       </script>
+       </div>
+       <button class="collapsible">Know More About Vijayawada</button>
+<div class="content">
+  <p>
+    Vijayawada is a city in the Andhra Pradesh Capital Region, on the banks of River Krishna in Krishna district of the Indian state of Andhra Pradesh.<br>
+    Vijayawada Oil Site is the Site in Andhra Pradesh that work in Oil Industry<br>
+    It provides Oil in the Whole India<br>
+    Company has beautiful environment and is flourishing day by day
+  </p></div>
+  <script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+    
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
+    </script>
+      
+       <footer>
+        <a href="About.html" target="_blank">About</a>
+        <a href="Contact.html" target="_blank">Contact</a>
+        <br>
+        <p>
+            Ace Enterprises, Copyright &copy; 2018
+        </p>
+
+    </footer>
+      
+</body>
+</html>
